@@ -1,0 +1,78 @@
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+
+.login-Container{
+    margin: 210px auto 0 auto;
+}
+
+h1{
+    /*font-size: 30px;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0,0,0,.2);
+    color: #FFFFFF;*/
+    font-size: 50px;
+    font-family:"楷体";
+    margin-left: 20px;
+    color: transparent;
+    background-color : pink;
+    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
+    -webkit-background-clip : text;
+}
+
+.login-form{
+
+    border: 8px solid dodgerblue;
+    background: #ffffff;
+}
+
+.login-form .head{
+    color: dodgerblue;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    height: 55px;
+    line-height: 55px;
+    margin-top: 15px;
+}
+
+.login-form .line{
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: 2px solid dodgerblue;
+    margin-bottom: 18px;
+}
+
+.login-form label{
+    color: gray;
+}
+
+.login-form input{
+    border-radius: 0px;
+    padding-left: 20px;
+
+}
+
+.login-form input:-webkit-autofill{
+    background-color: #ffffff!important;
+}
+
+.login-form .btn{
+    border-radius: 0px;
+}
+
+.login-form .input-clear{
+    position: absolute;
+    right: 24px;
+    top:6px;
+}
+
+form {
+    position: relative;
+    width: 305px;
+    margin: 15px auto 0 auto;
+    text-align: center;
+}
+
