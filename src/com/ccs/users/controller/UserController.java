@@ -102,12 +102,19 @@ public class UserController {
             e.printStackTrace();
         }
         String sname=request.getParameter("input_sname");
+        System.out.println(sname);
         String birthday=request.getParameter("input_birthday");
+        System.out.println(birthday);
         String password=request.getParameter("input_pass");
+        System.out.println(password);
         String qname=request.getParameter("input_qname");
+        System.out.println(qname);
         String sex=request.getParameter("sex");
+        System.out.println(sex);
         String telephone=request.getParameter("input_telephone");
+        System.out.println(telephone);
         String email=request.getParameter("input_email");
+        System.out.println(email);
         CCSUser user=new CCSUser(sname,birthday,password,qname,sex,telephone,email);
         UserDao userDao=new UserDaoImpl();
         userDao.insertCCSUser(user);

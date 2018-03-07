@@ -56,6 +56,7 @@ public class UserDaoImpl implements UserDao {
             sb.append("','");sb.append(user.getTelephone());
             sb.append("','");sb.append(user.getEmail());
             sb.append("')");
+            System.out.println(sb.toString());
             st.executeUpdate(sb.toString());
             conn.close();
         } catch (SQLException e) {
