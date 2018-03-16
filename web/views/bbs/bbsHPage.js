@@ -13,7 +13,7 @@ $(function () {
         contentType:'application/x-www-form-urlencoded',
         dataType:'json',
         dataField:'rows',
-        height:300,
+        height:368,
         striped:true,//是否显示间隔栏颜色
         cache:false,//是否使用缓存，默认为true
         pagination: true,                   //是否显示分页（*）
@@ -21,9 +21,9 @@ $(function () {
         sidePagination:'server',
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 5,                       //每页的记录行数（*）
-        pageList: [5, 10, 20, 50],        //可供选择的每页的行数（*）
+        pageList: [5],        //可供选择的每页的行数（*）
         clickToSelect: true,                //是否启用点击选中行
-        uniqueId: "id",                     //每一行的唯一标识，一般为主键列
+        //uniqueId: "num",                     //每一行的唯一标识，一般为主键列
         cardView: false,                    //是否显示详细视图
         detailView: false,                   //是否显示父子表
         singleSelect:true,                  //单选
@@ -31,44 +31,44 @@ $(function () {
         queryParams:function (params) {
             var temp ={
                 pSize:params.pageSize,//页码
-                pNumber:params.pageNumber,//页面大小
+                pNumber:params.pageNumber//页面大小
 
             };
             return temp;
         },
         columns:[
-            {
-                field:"id",
+            /*{
+                field:"num",
                 title:"序号",
                 halign:"center",
                 align:"center",
                 width:"5%",
-                //页面序号id自增
+                //页面序号num自增
                 formatter:function (value,row,index) {
                     var options = $("#mainArticle_table").bootstrapTable("getOptions");
                     return (options.pageNumber - 1)*(options.pageSize)+index +1;
                 }
-            },
+            },*/
             {
-                field:"TITLE",
+                field:"title",
                 title:"主题帖",
                 halign:"center",
                 align:"left",
-                width:"35%",
+                width:"35%"
             },
             {
-                field:"PDATE",
+                field:"contribute_time",
                 title:"发布时间",
                 halign:"center",
                 align:"left",
-                width:"35%",
+                width:"35%"
             },
             {
-                field:"UNAME",
+                field:"username",
                 title:"作者",
                 halign:"center",
                 align:"left",
-                width:"15%",
+                width:"15%"
             },
             {
                 title:"详情",
@@ -76,15 +76,14 @@ $(function () {
                 align:"left",
                 width:"10%",
                 events:{
-                    'click.text-warning':function (e,value,row,index) {
+                    'click.text-warning':function (e,value,row) {
                         var postD={
-                            AID:row.AID,
-                        }
-
+                            AID:row.AID
+                        };
                         window.location.href="bbsArticle.jsp?postD="+postD;
                     }
                 },
-                formatter:function (value,row,index) {
+                formatter:function () {
                     return [
                         '<a class="text-warning" href="javascript:void(0)" title="帖子详情">',
                         '<i class="fa fa-fw fa-search"></i>查看',
@@ -93,14 +92,12 @@ $(function () {
                 }
             }
         ],
-        onDdlClickRow:function (row) {
-            
-        },
         onClickRow:function () {
             
         }
 
 
 
+
     })
-})
+});

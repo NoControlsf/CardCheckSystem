@@ -53,14 +53,14 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-edit"></i> 更新小屋 <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-edit"></i> 学习生活 <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li class="dropdown-header" style="display:none;">Dropdown heading</li>
-                    <li><a href="#" class="fa fa-fw fa-tag"> 更新论坛</a></li>
-                    <li><a href="#" class="fa fa-fw fa-tag"> 更新MV</a></li>
-                    <li><a href="#" class="fa fa-fw fa-tag"> 更新图片</a></li>
-                    <li><a href="#" class="fa fa-fw fa-tag"> 更新番剧</a></li>
-                    <li><a href="#" class="fa fa-fw fa-tag"> 更新音乐</a></li>
+                    <li><a href="<%=request.getContextPath()%>/views/learningnotes/learningnotesPage.jsp" class="fa fa-fw fa-tag"> 学习笔记</a></li>
+                    <li><a href="#" class="fa fa-fw fa-tag"> 生活日记</a></li>
+                    <li><a href="#" class="fa fa-fw fa-tag"> 没想好</a></li>
+                    <li><a href="#" class="fa fa-fw fa-tag"> 没想好</a></li>
+                    <li><a href="#" class="fa fa-fw fa-tag"> 没想好</a></li>
                 </ul>
             </li>
 

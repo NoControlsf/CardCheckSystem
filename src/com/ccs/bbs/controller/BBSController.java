@@ -24,9 +24,10 @@ public class BBSController {
     public SysResult getArticle(HttpServletRequest request){
         int pageNumber=Integer.parseInt(request.getParameter("pNumber"));
         int pageSize=Integer.parseInt(request.getParameter("pSize"));
-        System.out.println("pageNumber="+pageNumber);
-        System.out.println("pageSize="+pageSize);
+        //System.out.println("pageNumber="+pageNumber);
+        //System.out.println("pageSize="+pageSize);
         SysResult sysResult=bbsDao.selectMainArticle(pageNumber,pageSize);
+        //System.out.println(sysResult.getRows().toString());
         return sysResult;
     }
 

@@ -30,6 +30,7 @@
 }
 
 .fixed-table-container {
+    height: 500px;//自定义
     position: relative;
     clear: both;
     border: 1px solid #dddddd;

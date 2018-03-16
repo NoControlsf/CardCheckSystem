@@ -23,14 +23,14 @@ public class BBSDaoImpl implements BBSDao{
         SysResult sysResult=new SysResult();
         sysResult.setPageNumber(pageNumber);
         sysResult.setPageSize(pageSize);
-        int iBegPos=(pageNumber-1)*pageSize+1;//起始行
-        int iEndPos=pageNumber*pageSize;//末尾行
+        int iBegPos=(pageNumber-1)*pageSize;//起始行
+        //int iEndPos=pageNumber*pageSize;//末尾行
         JdbcUtil jdbcUtil=new JdbcUtil();
         Connection conn=jdbcUtil.getConnection();
         StringBuffer sb=new StringBuffer();
-        sb.append("  WITH z AS ( SELECT*FROM BBSARTICLE WHERE PID = 0)  ");
-        sb.append("  SELECT*FROM(SELECT ROWNUM FROWNUM,z.* FROM z WHERE ROWNUM<=  "+iEndPos+")");
-        sb.append("  WHERE FROWNUM >= "+iBegPos);
+        sb.append("  SELECT * FROM acf_article  ");
+        sb.append("  LIMIT  "+iBegPos+", ");
+        sb.append(pageSize);
         try {
             Statement st = conn.createStatement();
             ResultSet rs=st.executeQuery(sb.toString());
@@ -43,10 +43,11 @@ public class BBSDaoImpl implements BBSDao{
                 for (int i = 1; i <= columnCount; i++) {
                     rowData.put(md.getColumnName(i), rs.getObject(i));
                 }
+                //System.out.println(rowData);
                 list.add(rowData);
             }
             //获取主贴的总数
-            String sql="select count(1) from(SELECT*FROM BBSARTICLE WHERE PID = 0)";
+            String sql="select count(1) from acf_article";
             ResultSet rs2=st.executeQuery(sql);
             if(rs2.next()){
                 total=rs2.getInt("count(1)");
@@ -57,6 +58,7 @@ public class BBSDaoImpl implements BBSDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //System.out.println(list);
         sysResult.setRows(list);
         sysResult.setTotal(total);
         return sysResult;
